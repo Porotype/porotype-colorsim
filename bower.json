@@ -1,0 +1,27 @@
+{
+  "name": "porotype-colorsim",
+  "description": "Color blindness simulation web component",
+  "authors": [
+    "Marc Englund <marc@vaadin.com> (https://vaadin.com)"
+  ],
+  "main": "porotype-colorsim.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^2.0.0"
+  },
+  "license": "Apache-2.0",
+  "ignore": [
+    "**/.*",
+    "bower_components"
+  ],
+  "devDependencies": {
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
+    "web-component-tester": "Polymer/web-component-tester#^6.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0",
+    "vaadin-combo-box": "^3.0.3",
+    "vaadin-valo-theme": "vaadin/vaadin-valo-theme#^0.3.2",
+    "paper-slider": "^2.0.4"
+  },
+  "resolutions": {
+    "polymer": "^2.0.0"
+  }
+}

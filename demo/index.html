@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>porotype-colorsim demo</title>
+
+    <script src="../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../../bower_components/iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../porotype-colorsim.html">
+
+    <link rel="import" href="../../../bower_components/vaadin-valo-theme/vaadin-combo-box.html">
+    <link rel="import" href="../../../bower_components/vaadin-combo-box/vaadin-combo-box.html">
+    <link rel="import" href="../../../bower_components/paper-slider/paper-slider.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic porotype-colorsim demo</h3>
+      <demo-snippet>
+        <template>
+          <!-- Static simulation applied to external elements -->
+          <porotype-colorsim target="#bar" simulation="Protanomaly" severity="10"/>
+          <porotype-colorsim target=".foo" simulation="Deuteranomaly" severity="10"/>
+          <porotype-colorsim target="img[another]" simulation="Tritanomaly" severity="10"/>
+          <!-- the target images -->
+          <img id="bar" src="http://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/A%20Physiologically-based%20Model%20for%20Simulation%20of%20Color%20Vision%20Deficiency_files/bubonic_plague.jpg"/>
+          <img class="foo" src="http://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/A%20Physiologically-based%20Model%20for%20Simulation%20of%20Color%20Vision%20Deficiency_files/bubonic_plague.jpg"/>
+          <img another src="http://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/A%20Physiologically-based%20Model%20for%20Simulation%20of%20Color%20Vision%20Deficiency_files/bubonic_plague.jpg"/>
+
+          <!-- Dynamically change simulation and severity -->
+          <script>
+            window.addEventListener('WebComponentsReady', function() {
+              const sim1 = document.querySelector('#sim-1');
+              const sel1 = document.querySelector('#sel-1');
+              const sli1 = document.querySelector('#sli-1');
+              sel1.items = sim1.simulations;
+              sel1.addEventListener('value-changed', function() {
+                sim1.simulation = sel1.value;
+              });
+              sli1.addEventListener('immediate-value-changed', function() {
+                sim1.severity = sli1.immediateValue;
+              });
+            });
+          </script>
+          <vaadin-combo-box id="sel-1" label="Simulation"></vaadin-combo-box>
+          <paper-slider id="sli-1" value="5" max="10" pin></paper-slider>
+          <porotype-colorsim id="sim-1">
+              <img src="http://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/A%20Physiologically-based%20Model%20for%20Simulation%20of%20Color%20Vision%20Deficiency_files/bubonic_plague.jpg"/>
+          </porotype-colorsim>
+         
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>
